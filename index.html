@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kushagra Srivastava | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -101,14 +102,14 @@
       border: 1px solid #b2ebf2;
     }
 
-    .project-grid {
+    .project-grid, .cert-grid {
       display: grid;
       gap: 20px;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       margin-top: 1rem;
     }
 
-    .project-card {
+    .project-card, .cert-card {
       background: white;
       border: 1px solid #ddd;
       padding: 1.5rem;
@@ -117,39 +118,20 @@
       transition: transform 0.2s;
     }
 
-    .project-card:hover {
+    .project-card:hover, .cert-card:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
-    .project-card h3 {
+    .project-card h3, .cert-card h3 {
       margin-bottom: 0.5rem;
       color: #222;
     }
 
-    .cert-grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-top: 1rem;
-    }
-
-    .cert-card {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .cert-card h3 {
-      margin-bottom: 0.5rem;
-      color: #222;
-    }
-
-    .cert-card p {
-      margin-bottom: 1rem;
-      color: #555;
+    .cert-card img {
+      width: 40px;
+      margin-right: 10px;
+      vertical-align: middle;
     }
 
     .btn {
@@ -173,18 +155,33 @@
       text-align: center;
       font-size: 0.9rem;
       color: #555;
+      position: relative;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.8rem;
       }
-
       nav a {
         margin: 0 0.5rem;
         font-size: 0.9rem;
       }
-
       section {
         padding: 2.5rem 1rem;
       }
@@ -205,14 +202,14 @@
     </nav>
   </header>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>
       I’m an enthusiastic and self-motivated Computer Science student at Ajay Kumar Garg Engineering College, passionate about software engineering and real-world tech solutions. I love building and contributing to meaningful projects, especially in AI, ML, and web development. Currently working as a Frontend Developer with the Computer Society of India.
     </p>
   </section>
 
-  <section id="skills">
+  <section id="skills" data-aos="fade-up">
     <h2>Skills</h2>
     <div class="skills-grid">
       <span class="skill">Java</span>
@@ -231,7 +228,7 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
@@ -249,32 +246,53 @@
     </div>
   </section>
 
-  <section id="certificates">
+  <section id="certificates" data-aos="fade-up">
     <h2>Certificates</h2>
     <div class="cert-grid">
       <div class="cert-card">
-        <h3>🎓 Artificial Intelligence</h3>
+        <h3><img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png"/> Artificial Intelligence</h3>
         <p>Completed AI fundamentals via Infosys Springboard.</p>
         <a href="https://infyspringboard.onwingspan.com/public-assets/infosysheadstart/cert/lex_auth_01416902564387225612/1-37b139b4-1025-4745-9ee2-c56519e33fdf.pdf" target="_blank" class="btn">View Certificate</a>
       </div>
       <div class="cert-card">
-        <h3>🤖 Machine Learning</h3>
+        <h3><img src="https://img.icons8.com/color/48/machine-learning.png" alt="ML Icon" /> Machine Learning</h3>
         <p>Completed ML fundamentals via Infosys Springboard.</p>
         <a href="https://infyspringboard.onwingspan.com/public-assets/infosysheadstart/cert/lex_auth_0130828974237040647635_shared/1-a1dd63d9-eba6-43c9-a232-c77e640d6e37.pdf" target="_blank" class="btn">View Certificate</a>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" data-aos="fade-up">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:kushagra2876@gmail.com">kushagra2876@gmail.com</a></p>
     <p>Phone: 8528130373</p>
     <p>Location: Lucknow, India</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/kushagra-srivastava-38012422a/" target="_blank">Visit Profile</a></p>
   </section>
 
   <footer>
     &copy; 2025 Kushagra Srivastava. All rights reserved.
   </footer>
+
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
 
 </body>
 </html>
